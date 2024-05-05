@@ -8,7 +8,7 @@
 </p>
 
 > **TL;DR** Under Settings → App Templates in your Portainer GUI, paste this URL:<br>
-> `https://raw.githubusercontent.com/Lissy93/portainer-templates/main/templates.json`<br>
+> `https://raw.githubusercontent.com/wickedyoda/portainer-templates/main/templates.json`<br>
 
 
 <details>
@@ -33,7 +33,7 @@
 
 In [Portainer](https://www.portainer.io/), [App Templates](https://docs.portainer.io/user/docker/templates) enable you to easily deploy services with a predetermined configuration, while allowing you to customize options through the web UI. While Portainer ships with some default templates (see [portainer/templates](https://github.com/portainer/templates)), it's often helpful to have 1-click access to many more apps + stacks, without having to constantly switch template sources.
 
-This repo combines app templates from several [sources](#sources), to create a ready-to-go [template file](https://github.com/Lissy93/portainer-templates/blob/main/templates.json) containing all the apps you'll ever need. It's also possible to self-host, as well as combine with your own custom templates.
+This repo combines app templates from several [sources](#sources), to create a ready-to-go [template file](https://github.com/wickedyoda/portainer-templates/blob/main/templates.json) containing all the apps you'll ever need. It's also possible to self-host, as well as combine with your own custom templates.
 
 You can browse all supported apps and stacks and see stats, config options and stand-alone installation commands for each, at [portainer-templates.as93.net](https://portainer-templates.as93.net)
 
@@ -60,13 +60,13 @@ Alternatively, when you start Portainer, you can append the `--templates` flag p
 ## Self-Hosting
 
 If you'd prefer to source templates locally, you can self-host with Docker - there's a sample NGINX container provided<br>
-Just run: `docker run -p 8080:80 lissy93/portainer-templates` (changing 8080 to a port of your choice)<br>
+Just run: `docker run -p 8080:80 wickedyoda/portainer-templates` (changing 8080 to a port of your choice)<br>
 You'll then be able to pass Portainer the template file located at `http://[host]:[port]/templates.json`<br>
 
 Alternatively, you can build the image yourself locally, with the following commands (if you're using your own fork, don't forget to switch `lissy93` out for your username!)
 
 ```bash
-git clone https://github.com/lissy93/portainer-templates.git
+git clone https://github.com/wickedyoda/portainer-templates.git
 cd portainer-templates
 docker build -t portainer-templates .
 docker run -d -p "8080:80" portainer-templates
@@ -78,19 +78,19 @@ If you're using your own template file, but don't want to fork this repository, 
 
 ## Editing
 
-The `template.json` file is generated using the scripts in [`lib`](https://github.com/Lissy93/portainer-templates/tree/main/lib), using GitHub Actions.
+The `template.json` file is generated using the scripts in [`lib`](https://github.com/wickedyoda/portainer-templates/tree/main/lib), using GitHub Actions.
 Running the `make` command will download all listed sources, parse them, and combine them with anything in the sources dir, outputting the `templates.json` file.<br>
-_So, you only need to edit **either** the [`sources.csv`](https://github.com/Lissy93/portainer-templates/blob/main/sources.csv) file, **or** add your templates directly into the [`sources/`](https://github.com/Lissy93/portainer-templates/tree/main/sources) directory._
+_So, you only need to edit **either** the [`sources.csv`](https://github.com/wickedyoda/portainer-templates/blob/main/sources.csv) file, **or** add your templates directly into the [`sources/`](https://github.com/wickedyoda/portainer-templates/tree/main/sources) directory._
 
 ### Adding a new Source
-If you're maintaining your own list of Portainer templates, and would like them to be included, just add the URL to your template.json file to [`sources.csv`](https://github.com/Lissy93/portainer-templates/blob/main/sources.csv), along with a name.
+If you're maintaining your own list of Portainer templates, and would like them to be included, just add the URL to your template.json file to [`sources.csv`](https://github.com/wickedyoda/portainer-templates/blob/main/sources.csv), along with a name.
 When the action runs, it will download the content, parse it and add it to the final template.
 
 ### Adding a Template / Template list
-Alternatively, place your template file within the [`sources`](https://github.com/Lissy93/portainer-templates/tree/main/sources) directory, and it will be automatically combined into the main `template.json`. Be sure that your template corresponds to [Portainer's App Template JSON Format](https://docs.portainer.io/advanced/app-templates/format).
+Alternatively, place your template file within the [`sources`](https://github.com/wickedyoda/portainer-templates/tree/main/sources) directory, and it will be automatically combined into the main `template.json`. Be sure that your template corresponds to [Portainer's App Template JSON Format](https://docs.portainer.io/advanced/app-templates/format).
 
 ### Validating Templates
-There is a schema defined in [`Schema.json`](https://github.com/Lissy93/portainer-templates/blob/main/Schema.json), which can be used to validate any Portainer template.
+There is a schema defined in [`Schema.json`](https://github.com/wickedyoda/portainer-templates/blob/main/Schema.json), which can be used to validate any Portainer template.
 Run `make validate` to ensure your template conforms to Portainer's App Template [specification](https://docs.portainer.io/advanced/app-templates/format).
 
 ### Maintaining your own Templates
@@ -678,7 +678,7 @@ The main `templates.json` file is composes of these sources, along with the cont
 
 ## Raising Issues
 
-If you notice something not working as it should in any of the [`lib/` scripts](https://github.com/Lissy93/portainer-templates/tree/main/lib), [`website` code](https://github.com/Lissy93/portainer-templates/tree/website), [`README` documentation](https://github.com/Lissy93/portainer-templates/tree/main/.github/README.md), or [`workflows` automations](https://github.com/Lissy93/portainer-templates/tree/main/.github/workflows) - then raise an issue or PR in this repository.
+If you notice something not working as it should in any of the [`lib/` scripts](https://github.com/wickedyoda/portainer-templates/tree/main/lib), [`website` code](https://github.com/wickedyoda/portainer-templates/tree/website), [`README` documentation](https://github.com/wickedyoda/portainer-templates/tree/main/.github/README.md), or [`workflows` automations](https://github.com/wickedyoda/portainer-templates/tree/main/.github/workflows) - then raise an issue or PR in this repository.
 
 If you encounter an issue with any container included here, please raise a ticket/PR on the up-stream repo, **<ins>not in this repository</ins>**.
 This project simply compiles templates listed in the [Sources](#sources) into a single manifest, so once a fix has been pushed out upstream, it will be available here.
@@ -697,7 +697,7 @@ Or, to make changes to the website, see the [Website](#website) section below.
 
 Before raising an issue or editing a template, please see the [Raising Issues](#raising-issues) section above (TL;DR: changes need to be made upstream, NOT in this repo).
 
-If you're new to open source, I've put together some guides in [Git-In](https://github.com/Lissy93/git-into-open-source/), but feel free to reach out if you need any support.
+If you're new to open source, I've put together some guides in [Git-In](https://github.com/wickedyoda/git-into-open-source/), but feel free to reach out if you need any support.
 
 ---
 
@@ -705,7 +705,7 @@ If you're new to open source, I've put together some guides in [Git-In](https://
 There's a simple website, which lists all available templates and shows stats, config options and installation instructions for each app / stack. You can view it at **[portainer-templates.netlify.app](https://portainer-templates.netlify.app/)**<br>
 
 
-The source is located in the [`website`](https://github.com/Lissy93/portainer-templates/tree/website) branch, and it's build as a simple SSR Svelte app (using SvelteKit + TypeScript + SCSS + Vite).
+The source is located in the [`website`](https://github.com/wickedyoda/portainer-templates/tree/website) branch, and it's build as a simple SSR Svelte app (using SvelteKit + TypeScript + SCSS + Vite).
 To make changes to the website, you'll need Node.js and Git installed. Then just run the following commands:
 ```bash
 git clone -b website git@github.com:Lissy93/portainer-templates.git # Clone the website branch
@@ -714,9 +714,9 @@ npm i # Install dependencies
 npm run dev # Start the development server
 ```
 
-And to pubish, run `npm run build` then either use `npm start` or host the content of the '/build' directory using a web server of your choice. Alternatively, there's a [Dockerfile](https://github.com/Lissy93/portainer-templates/blob/website/Dockerfile), for easy deployment :)
+And to pubish, run `npm run build` then either use `npm start` or host the content of the '/build' directory using a web server of your choice. Alternatively, there's a [Dockerfile](https://github.com/wickedyoda/portainer-templates/blob/website/Dockerfile), for easy deployment :)
 
-Note that it's not required to make any changes to the website when adding a new template or templates source, as data is fetched directly from [`templates.json`](https://github.com/Lissy93/portainer-templates/blob/main/templates.json) in the repo's main branch - so should show up automatically once your changes are merged.
+Note that it's not required to make any changes to the website when adding a new template or templates source, as data is fetched directly from [`templates.json`](https://github.com/wickedyoda/portainer-templates/blob/main/templates.json) in the repo's main branch - so should show up automatically once your changes are merged.
 
 ---
 
