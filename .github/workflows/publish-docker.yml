@@ -41,10 +41,10 @@ jobs:
           #  type=ref,event=tag,suffix={{tag}}
           #  type=ref,event=branch,branch=main,name=latest
           labels: |
-            maintainer=Lissy93
+            maintainer=wickedyoda
             org.opencontainers.image.title=Portainer-Templates
             org.opencontainers.image.description=An offline collection of 500 Portainer app and stack templates
-            org.opencontainers.image.documentation=https://github.com/lissy93/portainer-templates
+            org.opencontainers.image.documentation=https://github.com/wickedyoda/portainer-templates
             org.opencontainers.image.authors=Alicia Sykes
             org.opencontainers.image.licenses=MIT
 
@@ -82,7 +82,7 @@ jobs:
 #     - name: 💬 Set Docker Hub Description
 #       uses: peter-evans/dockerhub-description@v2
 #       with:
-#         repository: lissy93/devolio
+#         repository: wickedyoda/devolio
 #         readme-filepath: ./README.md
 #         short-description: Devolio - A developer portfolio site for the rest of us
 #         username: ${{ secrets.DOCKER_USERNAME }}

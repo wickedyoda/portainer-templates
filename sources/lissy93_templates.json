@@ -195,7 +195,7 @@
       "platform": "linux",
       "repository": {
         "stackfile": "sources/stacks/outline.yml",
-        "url": "https://github.com/lissy93/portainer-templates"
+        "url": "https://github.com/wickedyoda/portainer-templates"
       },
       "restart_policy": "unless-stopped",
       "title": "Outline",
@@ -213,7 +213,7 @@
       "platform": "linux",
       "repository": {
         "stackfile": "sources/stacks/traefik.yml",
-        "url": "https://github.com/lissy93/portainer-templates"
+        "url": "https://github.com/wickedyoda/portainer-templates"
       },
       "restart_policy": "unless-stopped",
       "title": "Outline",
